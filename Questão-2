@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de Dois Números</title>
+</head>
+<style>
+
+body {
+   font-family: Arial, Helvetica, sans-serif;
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+ color: black;
+  margin-bottom: 15px;  
+}
+
+input {
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    background-color: lightpink;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: lightpink;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+</style>
+<body>
+
+    <div class="container">
+        <h1>Soma de Dois Números</h1>
+        <input type="number" id="num1" placeholder="Número 1">
+        <input type="number" id="num2" placeholder="Número 2"><br>
+        <button onclick="Somar()">Somar</button>
+        <p id="resultado"></p>
+    </div>
+
+<script>
+
+function Somar() {
+    let n1 = parseFloat(document.getElementById("num1").value);
+    let n2 = parseFloat(document.getElementById("num2").value);
+    let soma = n1 + n2;
+
+if (isNaN(soma)) {
+    document.getElementById("resultado").textContent = "Por favor, digite dois números válidos.";
+} else {
+    document.getElementById("resultado").textContent = "Resultado: " + soma;
+}
+
+}
+</script>
+
+</body>
+</html>
