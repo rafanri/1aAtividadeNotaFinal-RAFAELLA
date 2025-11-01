@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<style>
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+input {
+    width: 150px;
+    padding: 8px;
+    margin-top: 5px;
+border: 1px solid #ccc;
+border-radius: 5px;
+text-align: center;
+}
+
+button {
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: palevioletred;
+}
+
+p {
+    margin-top:20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.resultado {
+    font-weight: bold;
+    color:#333;
+}
+
+</style>
+<body>
+
+<div class="container">
+<h1>Calculadora de IMC</h1>
+
+<label for="peso">Peso (kg)</label>
+<input type="number" id="peso" placeholder="Digite seu peso">
+
+<label for="altura">Altura (m)</label>
+<input type="number" id="altura" step="0.01" placeholder="Digite sua altura">
+
+<button onclick="calcularIMC()">Calcular IMC</button>
+
+<p id="resultado"></p>
+</div>
+
+<script>
+
+function calcularIMC() {
+    const peso = parseFloat(document.getElementById('peso').value);
+    const altura = parseFloat(document.getElementById('altura').value);
+    const resultado = document.getElementById('resultado');
+
+    if (isNaN(peso) || isNaN(altura) || altura <= 0) {
+        resultado.textContent = "Por favor, digite valores válidos."
+        resultado.style.color = "#333";
+    }
+
+    const imc = peso / (altura * altura);
+    let classificacao = "";
+
+    if (imc < 18.5) {
+        classificacao = "Abaixo do peso";
+    } else if (imc < 24.9) { 
+        classificacao = "Peso normal"
+    } else if (imc < 29.9) {
+        classificacao = "Sobrepeso";
+    } else {
+        classificacao = "Obesidade"
+    }
+
+    resultado.innerHTML = `Seu IMC é <span class="resultado">${imc.toFixed(2)}</span> (${classificacao})`;
+    resultado.style.color = "#333";
+}
+
+</script>
+
+</body>
+</html>
